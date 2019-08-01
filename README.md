@@ -23,7 +23,7 @@ Clone this repo and go into the folder directory. You can type `docker-compose u
 		* :firstName - is a request parameter
 
 	* **Response Object**:
-		* _firstName : Type(String)
+		* _id : Type(String)
 		* firstName : Type(String)
 		* lastName : Type(String)
 
