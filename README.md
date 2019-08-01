@@ -11,7 +11,7 @@ Clone this repo and go into the folder directory. You can type `docker-compose u
 		* message: "user created sucessfully"
 
 
-* **"/"**: Method **PUT**. This is the endpoint to update user
+* **"/:firstName"**: Method **PUT**. This is the endpoint to update user
 	* **Request Object**:
 		* firstName : Type(String)
 		* lastName : Type(String)
