@@ -7,7 +7,7 @@ const app = express()
 app.server= http.createServer(app)
 
 const bodyParser = require("body-parser")
-const port = 3000 || process.env.PORT
+const port = 4000 || process.env.PORT
 
 // models
 const User = require("./model/create")
@@ -18,7 +18,7 @@ app.use(bodyParser.json({
 
 
 //conect to db
- mongoose.connect("mongodb://mongo:27017/liveperson", {useMongoClient : true})
+ mongoose.connect("mongodb://mongoDbLive:27017/liveperson", {useMongoClient : true})
                     .then(()=> console.log(" db connection established"))
                     .catch((err) => ()=> console.log(" error while connecting to db"))
 
@@ -33,9 +33,9 @@ app.get("/", (req, res)=>{
 // Create a user - Post
 app.post('/', (req, res)=>{
 
-    const User = new create(req.body)
+    const createUser = new User(req.body)
 
-    User.save((err)=> {
+    createUser.save((err)=> {
         if(err){ return res.status(400).json({err}) }
 
         res.status(200).json({
@@ -45,9 +45,9 @@ app.post('/', (req, res)=>{
 })
 
 //Update User  - PUT
-app.put("/", (req, res) =>{
+app.put("/:firstName", (req, res) =>{
 
-    User.findOneAndUpdate(req.params.id, req.body, (err, user)=>{
+    User.findOneAndUpdate({firstName: req.params.firstName}, req.body, (err, user)=>{
         if (err) { return res.status(400).json(err) }
 
         res.status(200).json({ message: "update successful"})
@@ -56,8 +56,8 @@ app.put("/", (req, res) =>{
 
 
 // Read user with its id - GET
-app.get("/:id", (req,res) => {
-    User.findById(req.params.id, (err, user) =>{
+app.get("/:firstName", (req,res) => {
+    User.findOne({firstName: req.params.firstName}, (err, user) =>{
         if(err){ return res.status(400).json({err}) }
 
         res.status(200).json(user)
@@ -67,8 +67,8 @@ app.get("/:id", (req,res) => {
 
 
 //Delete a user by id
-app.delete("/:id", (req, res) => {
-    User.remove({ _id: req.params.id }, (err, user) => {
+app.delete("/:firstName", (req, res) => {
+    User.remove({ firstName: req.params.firstName }, (err, user) => {
         if (err) { return res.status(400).json(err) }
         res.status(200).json({ message : "user successfully deleted "})
       });

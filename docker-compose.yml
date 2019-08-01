@@ -8,9 +8,11 @@ services:
     volumes: 
       - .:/usr/src/app
     ports:
-      - 4000:4000
+      - "4000:4000"
+    links:
+      - mongoDbLive
   mongoDbLive:
     image: mongo
     restart: always
     ports:
-      - 27017:27017
+      - "27017:27017"
