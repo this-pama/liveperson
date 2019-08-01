@@ -18,7 +18,7 @@ Clone this repo and go into the folder directory. You can type `docker-compose u
 	* **Response Object**:
 		* message: "update successful"
 
-* **"/:firstName"**: Method **GET**. This is the endpoint to read user by its ID
+* **"/:firstName"**: Method **GET**. This is the endpoint to read user by its firstName
 	* **Request Object**:
 		* :firstName - is a request parameter
 
@@ -27,7 +27,7 @@ Clone this repo and go into the folder directory. You can type `docker-compose u
 		* firstName : Type(String)
 		* lastName : Type(String)
 
-* **"/:firstName"**:  **DELETE** Method. This is the endpoint to delete a user by its ID
+* **"/:firstName"**:  **DELETE** Method. This is the endpoint to delete a user by its firstName
 	 * **Request Object**:
 		 * :firstName - is a request parameter
 
