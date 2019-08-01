@@ -18,18 +18,18 @@ Clone this repo and go into the folder directory. You can type `docker-compose u
 	* **Response Object**:
 		* message: "update successful"
 
-* **"/:id"**: Method **GET**. This is the endpoint to read user by its ID
+* **"/:firstName"**: Method **GET**. This is the endpoint to read user by its ID
 	* **Request Object**:
-		* :id - is a request parameter
+		* :firstName - is a request parameter
 
 	* **Response Object**:
-		* _id : Type(String)
+		* _firstName : Type(String)
 		* firstName : Type(String)
 		* lastName : Type(String)
 
-* **"/:id"**:  **DELETE** Method. This is the endpoint to delete a user by its ID
+* **"/:firstName"**:  **DELETE** Method. This is the endpoint to delete a user by its ID
 	 * **Request Object**:
-		 * :id - is a request parameter
+		 * :firstName - is a request parameter
 
 	* **Response Object**:
 		* message : "user successfully deleted "
